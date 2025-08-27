@@ -1,0 +1,51 @@
+{
+  "info": {
+    "_postman_id": "b1e2c3d4-5678-1234-9abc-def012345678",
+    "name": "AgenticHR API Demo",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "PTO Request",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"employee_id\": 1,\n  \"days\": 3\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/agentic-ai/pto-request",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["agentic-ai", "pto-request"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Policy Query",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"What is the policy on remote work expenses?\",\n  \"employee_id\": 2\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/agentic-rag/policy-query",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["agentic-rag", "policy-query"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
