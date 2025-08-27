@@ -1,3 +1,10 @@
 fastapi
 uvicorn
 pydantic
+langchain
+langchain-core
+langchain-community
+langchain-text-splitters
+langgraph
+faiss-cpu
+pypdf2

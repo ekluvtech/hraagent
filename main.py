@@ -1,9 +1,7 @@
 import os
-import getpass
 from fastapi import FastAPI, Request
 from pydantic import BaseModel
 from typing import Optional
-from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain.tools import tool
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
@@ -15,6 +13,8 @@ from langgraph.checkpoint.memory import MemorySaver
 import sqlite3
 from datetime import datetime
 from PyPDF2 import PdfReader
+from langchain_community.chat_models import ChatOllama
+from langchain_community.embeddings import OllamaEmbeddings
 
 # --- FastAPI app ---
 app = FastAPI()
@@ -28,13 +28,10 @@ class PolicyQuery(BaseModel):
     query: str
     employee_id: Optional[int] = None
 
-# --- Setup API keys (in practice, set these securely) ---
-if not os.environ.get("OPENAI_API_KEY"):
-    os.environ["OPENAI_API_KEY"] = getpass.getpass("Enter your OpenAI API key: ")
-
-# --- Initialize LLM and RAG resources ---
-llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
-embeddings = OpenAIEmbeddings()
+# --- Initialize LLM and RAG resources (Ollama) ---
+# Ensure Ollama is running locally and the models are pulled: `ollama pull llama3.2`, `ollama pull nomic-embed-text`
+llm = ChatOllama(model="llama3.2", temperature=0)
+embeddings = OllamaEmbeddings(model="nomic-embed-text")
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
 
 # --- Simulated HR Database (SQLite in-memory) ---
@@ -59,8 +56,10 @@ cursor.execute("INSERT INTO employees (id, name, pto_balance, tenure_months) VAL
 conn.commit()
 
 # --- Load Policy Documents from PDFs ---
-def load_policy_pdfs(policy_dir="backend/policies"):
+def load_policy_pdfs(policy_dir="policies"):
     docs = []
+    if not os.path.isdir(policy_dir):
+        return docs
     for fname in os.listdir(policy_dir):
         if fname.endswith(".pdf"):
             path = os.path.join(policy_dir, fname)
