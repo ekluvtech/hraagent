@@ -13,8 +13,8 @@ from langgraph.checkpoint.memory import MemorySaver
 import sqlite3
 from datetime import datetime
 from PyPDF2 import PdfReader
-from langchain_community.chat_models import ChatOllama
-from langchain_community.embeddings import OllamaEmbeddings
+from langchain_ollama import OllamaEmbeddings
+from langchain_ollama.chat_models import ChatOllama
 
 # --- FastAPI app ---
 app = FastAPI()
@@ -63,6 +63,7 @@ def load_policy_pdfs(policy_dir="policies"):
     for fname in os.listdir(policy_dir):
         if fname.endswith(".pdf"):
             path = os.path.join(policy_dir, fname)
+            print(f"Loading policy document: {fname}")
             reader = PdfReader(path)
             text = "\n".join(page.extract_text() or "" for page in reader.pages)
             docs.append(Document(page_content=text, metadata={"source": fname}))

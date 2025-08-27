@@ -1,0 +1,69 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*.class
+
+# Virtual environments
+.venv/
+venv/
+venv1/
+ENV/
+env/
+
+# Dependency/installer artifacts
+*.egg-info/
+.eggs/
+*.egg
+pip-wheel-metadata/
+
+# Logs and runtime files
+*.log
+server.log
+uvicorn*.log
+
+# Test/coverage
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.tox/
+.nox/
+
+# IDE/editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment/config
+.env
+.env.*
+.python-version
+
+# LangChain/FAISS artifacts
+index.faiss
+index.pkl
+*.faiss
+*.pkl
+
+# Build
+build/
+dist/
+site/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Caches
+.cache/
+.ruff_cache/
+.mypy_cache/
+.pyre/
+.pytype/
+
+# Misc
+**/__snapshots__/

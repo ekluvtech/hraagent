@@ -8,3 +8,4 @@ langchain-text-splitters
 langgraph
 faiss-cpu
 pypdf2
+langchain-ollama
