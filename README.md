@@ -13,14 +13,10 @@ This project demonstrates how Agentic AI and Retrieval-Augmented Generation (RAG
 
 ```
 hragent/
-  backend/
     main.py                # FastAPI backend with agent logic
     requirements.txt       # Backend dependencies
     policies/              # Sample policy PDF documents
-  frontend/
-    App.jsx                # React demo UI
-    index.html             # HTML entry point
-    package.json           # Frontend dependencies
+
 ```
 
 ---
@@ -53,31 +49,7 @@ hragent/
    - The API will be available at [http://localhost:8000](http://localhost:8000)
 
 4. **Policy Documents:**
-   - Place your HR policy PDFs in `backend/policies/`. The backend will automatically ingest and use them for RAG.
-
----
-
-## Frontend Setup (React)
-
-1. **Install dependencies:**
-   ```bash
-   cd ../frontend
-   npm install
-   ```
-
-2. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
-   - Open [http://localhost:5173](http://localhost:5173) in your browser.
-
----
-
-## Usage
-- Use the web UI to:
-  - Submit PTO requests (Agentic AI)
-  - Ask policy questions (Agentic RAG)
-- The backend will process requests using the agent and return intelligent, context-aware responses.
+   - Place your HR policy PDFs in `policies/`. The backend will automatically ingest and use them for RAG.
 
 ---
 
@@ -89,8 +61,8 @@ hragent/
 ---
 
 ## Extending
-- Add more policy PDFs to `backend/policies/` for richer RAG.
-- Expand agent logic in `backend/main.py` for more HR workflows.
+- Add more policy PDFs to `policies` for richer RAG.
+- Expand agent logic in `main.py` for more HR workflows.
 
 ---
 
