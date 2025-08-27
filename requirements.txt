@@ -7,5 +7,7 @@ langchain-community
 langchain-text-splitters
 langgraph
 faiss-cpu
+flask
+flask-cors
 pypdf2
 langchain-ollama

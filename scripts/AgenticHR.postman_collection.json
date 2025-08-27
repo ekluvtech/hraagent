@@ -46,6 +46,132 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "Policy Query - Without Employee",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"Summarize the company remote work policy\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/agentic-rag/policy-query",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["agentic-rag", "policy-query"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Policy Query - PTO Accrual",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"How does PTO accrual work?\",\n  \"employee_id\": 1\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/agentic-rag/policy-query",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["agentic-rag", "policy-query"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Policy Query - Maternity Leave Duration",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"What is the duration of maternity leave?\",\n  \"employee_id\": 2\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/agentic-rag/policy-query",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["agentic-rag", "policy-query"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Policy Query - Remote Equipment Stipend",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"Is there a stipend for remote work equipment?\",\n  \"employee_id\": 3\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/agentic-rag/policy-query",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["agentic-rag", "policy-query"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Policy Query - Sick Leave Carryover",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"Can unused sick leave be carried over to next year?\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/agentic-rag/policy-query",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["agentic-rag", "policy-query"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Policy Query - Eligibility Check",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"Am I eligible for parental leave?\",\n  \"employee_id\": 2\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/agentic-rag/policy-query",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["agentic-rag", "policy-query"]
+        }
+      },
+      "response": []
     }
   ]
 }
